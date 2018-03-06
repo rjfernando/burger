@@ -1,0 +1,32 @@
+<h1>Burger Time!</h1>
+
+<ul>
+  {{#each burgers}}
+    {{#unless devoured}}
+      {{> burgers/burger-block devoured=false}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h1>You devoured your burger</h1>
+
+<ul>
+  {{#each burgers}}
+    {{#unless devoured}}
+      {{> burgers/burger-block devoured=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<form class="create-form">
+    <div class="form-group">
+    <label for="burger">Example textarea</label>
+    <textarea class="form-control" id="userInput" rows="3"></textarea>
+  </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <p>Enter in a burger you would like to eat then click the "Submit" button.</p>
+</form>
+
+
+
+
