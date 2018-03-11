@@ -1,32 +1,46 @@
-<h1>Burger Time!</h1>
+<div class='container'>
+  <img src='../../assets/img/burger.png' alt='burger pic' width='200' heigth='200'>
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devoured=false}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h1>You devoured your burger</h1>
-
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devoured=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<form class="create-form">
-    <div class="form-group">
-    <label for="burger">Example textarea</label>
-    <textarea class="form-control" id="userInput" rows="3"></textarea>
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Burger Time!</h1>
+    </div>
   </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <p>Enter in a burger you would like to eat then click the "Submit" button.</p>
-</form>
 
-
-
-
+  <div class="row">
+    <section class="col-md-4">
+      <h2>Burgers To Devour!</h2>
+        <ul class="list-group">
+        
+            {{#each burgers}}
+                {{#unless this.devoured}}
+                    <li class="list-group-item">
+                        {{this.burger_name}}
+                        <button type="submit" form="{{this.id}}" class="btn btn-danger btn-block" id="devourButton">Devour</button>
+                    </li>
+                    <form action="/{{this.id}}?_method=PUT" method="POST" id="{{this.id}}" class="hidden-xs-up"></form>
+                {{/unless}}
+            {{/each}}
+        </ul>
+    </section>
+    <section class="col-md-4">
+        <h4>Add a Burger</h4>
+        <form method="POST" action="/" class="form">
+            <div class="form-group">
+                <input type="text" name="burger" class="form-control"></input>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Place Order</button>
+        </form>
+    </section>
+    <section class="col-md-4">
+      <h2>Burgers Devoured!</h2>
+        <ul class="list-group">
+    
+            {{#each burgers}}
+                {{#if this.devoured}}
+                    <li class="list-group-item">{{this.burger_name}}</li>
+                {{/if}}
+            {{/each}}
+        </ul>
+    </section>
+</div>
