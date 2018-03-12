@@ -1,44 +1,50 @@
 <div class='container'>
   <img src='../../assets/img/burger.png' alt='burger pic' width='200' heigth='200'>
 
-  <div class="row">
-    <div class="col-md-12">
+  <div class='row'>
+    <div class='col-md-12'>
       <h1>Burger Time!</h1>
     </div>
   </div>
 
-  <div class="row">
-    <section class="col-md-4">
-      <h2>Burgers To Devour!</h2>
-        <ul class="list-group">
-        
-            {{#each burgers}}
-                {{#unless this.devoured}}
-                    <li class="list-group-item">
-                        {{this.burger_name}}
-                        <button type="submit" form="{{this.id}}" class="btn btn-danger btn-block" id="devourButton">Devour</button>
-                    </li>
-                    <form action="/{{this.id}}?_method=PUT" method="POST" id="{{this.id}}" class="hidden-xs-up"></form>
-                {{/unless}}
-            {{/each}}
+  <div class='row'>
+    <section class='col-md-4' id='leftForm'>
+        <h4>Burgers To Devour</h4>
+        <ul>
+        {{#each burgers}}
+            {{#unless this.devoured}}
+            <li>
+                {{this.id}}: {{this.burger_name}}
+                <form action='/{{this.id}}?_method=PUT' method='POST'>
+                <input type='hidden' name='devoured' value='true'>
+                <button type='submit' class='btn btn-danger' id='devourButton'>Devour!</button>
+                </form>
+            </li>
+            {{/unless}}
+        {{/each}}
         </ul>
     </section>
-    <section class="col-md-4">
+    <section class='col-md-4'>
         <h4>Add a Burger</h4>
-        <form method="POST" action="/" class="form">
-            <div class="form-group">
-                <input type="text" name="burger" class="form-control"></input>
-            </div>
-            <button type="submit" class="btn btn-success btn-block">Place Order</button>
-        </form>
+            <form class='create-update-form' action='/' method='POST'>
+                <div class='form-group'>
+                    <label for='new_burger'>Burger Name:</label>
+                    <input type='text' name='burger_name'>
+                </div>
+                <button type='submit' class='btn btn-success' id='subButton'>Submit</button>
+            </form>
     </section>
-    <section class="col-md-4">
+    <section class='col-md-4'>
       <h2>Burgers Devoured!</h2>
-        <ul class="list-group">
-    
+        <ul>
             {{#each burgers}}
                 {{#if this.devoured}}
-                    <li class="list-group-item">{{this.burger_name}}</li>
+                    <li>
+                        {{this.id}}: {{this.burger_name}}
+                        <form action='/{{this.id}}?_method=PUT' method='POST'>
+                        <input type='hidden' name='devoured' value='false'>
+                        </form>
+                    </li>
                 {{/if}}
             {{/each}}
         </ul>
