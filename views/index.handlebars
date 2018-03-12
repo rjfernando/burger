@@ -1,6 +1,6 @@
 <div class='container'>
-    {{!--
-    <img src='../../assets/img/burger.png' alt='burger pic' width='200' heigth='200'> --}}
+    
+    {{!-- <img src='../../assets/img/burger.png' alt='burger pic' width='200' heigth='200'> --}}
 
     <div class='row'>
         <div class='col-lg-12'>
@@ -24,23 +24,25 @@
                         {{this.id}}: {{this.burger_name}}
                         <form action='/{{this.id}}?_method=PUT' method='POST'>
                             <input type='hidden' name='devoured' value='true'>
-                            <button type='submit' class='btn btn-danger' id='devourButton'>Devour!</button>
+                            <button type='submit' class='btn btn-danger' id='devourButton'>Devour it!</button>
                         </form>
                     </li>
                     {{/unless}} {{/each}}
                 </ul>
             </section>
-            <section class='col-md-4'>
-                <h4>Add a Burger</h4>
+            <section class='col-md-4' id='midForm'>
+                <img src='../../assets/img/burger.png' alt='burger pic' width='200' heigth='200'>
+                 <h4>Add a Burger</h4>
+                
                 <form class='create-update-form' action='/' method='POST'>
                     <div class='form-group'>
                         <label for='new_burger'></label>
-                        <input type='text' name='burger_name'> 
+                        <input type='text' name='new_burger'> 
                     </div>
                     <button type='submit' class='btn btn-success' id='subButton'>Submit</button>
                 </form>
             </section>
-            <section class='col-md-4'>
+            <section class='col-md-4' id='rightForm'>
                 <h4>Devoured!</h4>
                 <ul>
                     {{#each burgers}} {{#if this.devoured}}
