@@ -7,7 +7,7 @@
             <div class='jumbotron'>
                 <div class="container">
                     <h1 class="display-4">TASTY BURGERS</h1>
-                    <p class="lead">Burgers made with your creation!</p>
+                    <p class="lead">How many burgers can you devour!</p>
                 </div>
             </div>
         </div>
@@ -35,13 +35,13 @@
                 <form class='create-update-form' action='/' method='POST'>
                     <div class='form-group'>
                         <label for='new_burger'></label>
-                        <input type='text' name='burger_name' placeholder='add new burger'> 
+                        <input type='text' name='burger_name'> 
                     </div>
                     <button type='submit' class='btn btn-success' id='subButton'>Submit</button>
                 </form>
             </section>
             <section class='col-md-4'>
-                <h4>Burgers Devoured!</h4>
+                <h4>Devoured!</h4>
                 <ul>
                     {{#each burgers}} {{#if this.devoured}}
                     <li>
