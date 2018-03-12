@@ -1,52 +1,58 @@
 <div class='container'>
-  <img src='../../assets/img/burger.png' alt='burger pic' width='200' heigth='200'>
+    {{!--
+    <img src='../../assets/img/burger.png' alt='burger pic' width='200' heigth='200'> --}}
 
-  <div class='row'>
-    <div class='col-md-12'>
-      <h1>Burger Time!</h1>
-    </div>
-  </div>
-
-  <div class='row'>
-    <section class='col-md-4' id='leftForm'>
-        <h4>Burgers To Devour</h4>
-        <ul>
-        {{#each burgers}}
-            {{#unless this.devoured}}
-            <li>
-                {{this.id}}: {{this.burger_name}}
-                <form action='/{{this.id}}?_method=PUT' method='POST'>
-                <input type='hidden' name='devoured' value='true'>
-                <button type='submit' class='btn btn-danger' id='devourButton'>Devour!</button>
-                </form>
-            </li>
-            {{/unless}}
-        {{/each}}
-        </ul>
-    </section>
-    <section class='col-md-4'>
-        <h4>Add a Burger</h4>
-            <form class='create-update-form' action='/' method='POST'>
-                <div class='form-group'>
-                    <label for='new_burger'>Burger Name:</label>
-                    <input type='text' name='burger_name'>
+    <div class='row'>
+        <div class='col-lg-12'>
+            <div class='jumbotron'>
+                <div class="container">
+                    <h1 class="display-4">TASTY BURGERS</h1>
+                    <p class="lead">Burgers made with your creation!</p>
                 </div>
-                <button type='submit' class='btn btn-success' id='subButton'>Submit</button>
-            </form>
-    </section>
-    <section class='col-md-4'>
-      <h2>Burgers Devoured!</h2>
-        <ul>
-            {{#each burgers}}
-                {{#if this.devoured}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class ='container'>
+    <div class ='body-background'>
+        <div class='row'>
+            <section class='col-md-4' id='leftForm'>
+                <h4>Burger List</h4>
+                <ul>
+                    {{#each burgers}} {{#unless this.devoured}}
                     <li>
                         {{this.id}}: {{this.burger_name}}
                         <form action='/{{this.id}}?_method=PUT' method='POST'>
-                        <input type='hidden' name='devoured' value='false'>
+                            <input type='hidden' name='devoured' value='true'>
+                            <button type='submit' class='btn btn-danger' id='devourButton'>Devour!</button>
                         </form>
                     </li>
-                {{/if}}
-            {{/each}}
-        </ul>
-    </section>
+                    {{/unless}} {{/each}}
+                </ul>
+            </section>
+            <section class='col-md-4'>
+                <h4>Add a Burger</h4>
+                <form class='create-update-form' action='/' method='POST'>
+                    <div class='form-group'>
+                        <label for='new_burger'></label>
+                        <input type='text' name='burger_name' placeholder='add new burger'> 
+                    </div>
+                    <button type='submit' class='btn btn-success' id='subButton'>Submit</button>
+                </form>
+            </section>
+            <section class='col-md-4'>
+                <h4>Burgers Devoured!</h4>
+                <ul>
+                    {{#each burgers}} {{#if this.devoured}}
+                    <li>
+                        {{this.id}}: {{this.burger_name}}
+                        <form action='/{{this.id}}?_method=PUT' method='POST'>
+                            <input type='hidden' name='devoured' value='false'>
+                        </form>
+                    </li>
+                    {{/if}} {{/each}}
+                </ul>
+            </section>
+        </div>
+    </div>    
 </div>
