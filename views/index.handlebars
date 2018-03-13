@@ -33,6 +33,10 @@
             <section class='col-md-4' id='midForm'>
                 <img src='../../assets/img/burger.png' alt='burger pic' width='200' heigth='200'>
                  <h4>Add a Burger</h4>
+                 <p>****INSTRUCTIONS****</p>
+                 <p>Please enter any burger of your choice and then click SUBMIT.
+                    Once the burger is submitted, you will then click on DEVOUR IT to devour the burger. Enjoy!
+                 </p>
                 
                 <form class='create-update-form' action='/' method='POST'>
                     <div class='form-group'>
@@ -40,6 +44,7 @@
                         <input type='text' name='burger_name'> 
                     </div>
                     <button type='submit' class='btn btn-success' id='subButton'>Submit</button>
+                
                 </form>
             </section>
             <section class='col-md-4' id='rightForm'>
@@ -50,6 +55,8 @@
                         {{this.id}}: {{this.burger_name}}
                         <form action='/{{this.id}}?_method=PUT' method='POST'>
                             <input type='hidden' name='devoured' value='false'>
+                            {{!-- <button type='submit' class='btn btn-danger' id='done'>Done</button> --}}
+
                         </form>
                     </li>
                     {{/if}} {{/each}}
