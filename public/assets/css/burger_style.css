@@ -1,5 +1,4 @@
 body {
-    /* background-image: url('/assets/img/burger_bg.jpg'); */
     background-attachment: fixed;
     background-size: cover;
     text-align: center;
@@ -7,7 +6,7 @@ body {
 }
 
 .jumbotron {
-    background: rgba(253, 251, 251, 0.637);
+    background: white;
     background-image: url('/assets/img/burger_bg.jpg');
     background-size: 380px 290px; 
     background-repeat: no-repeat;
@@ -27,12 +26,10 @@ body {
     font-family: 'Dancing Script', cursive;
     font-size: 35px;
     padding-left: 400px;
-
-
 }
 
 .body-background {
-    background: rgba(253, 251, 251, 0.637);
+    background-color: red;
     border: 5px solid red;
     padding: 30px 40px 30px 40px;
 }
@@ -58,6 +55,8 @@ li {
     font-size: 14px;
     background: white;
     margin-bottom: 10px;
+    box-shadow: 4px 4px 4px yellow;
+
 }
 
 ul {
@@ -79,19 +78,22 @@ h3 {
     text-align: center;
     background: red;
     padding-top: 20px;
+    border: 8px solid yellow;   
 }
 
 #midForm {
     text-align: center;
     background: yellow;
+    padding-top: 30px;
 }
 
 #rightForm {
     text-align: center;
     background: red;
     padding-top: 20px;
-    
+    border: 8px solid yellow;   
 }
+
 #subButton {
     font-family: Arial, Helvetica, sans-serif;
     width: 100px;
